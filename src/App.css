@@ -15,6 +15,29 @@ body {
   );
 }
 
+nav ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul li a {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+ul li a:hover {
+  color: #fec402;
+}
+
+span {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0 5px;
+}
+
 .content-search {
   display: flex;
   justify-content: center;
@@ -43,20 +66,27 @@ input[type="text"] {
 
 .results {
   width: 100%;
-  background-color: white;
+  border: 2px solid #856620;
   margin-top: 10px;
-}
-
-span {
-  color: rgb(107, 103, 103);
-  font-size: 14px;
-  letter-spacing: 0.1rem;
 }
 
 ul {
   list-style: none;
+  margin: 0;
 }
 
-li {
-  padding: 0 10px;
+.content-search {
+  border: 2px solid #856620;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.content {
+  padding: 5px 0;
+}
+
+h6 {
+  font-size: 14px;
+  margin: 0;
 }

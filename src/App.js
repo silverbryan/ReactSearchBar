@@ -2,8 +2,8 @@ import React from "react";
 
 import "./App.css";
 
-import Navbar from './components/Navbar';
-import SearchBar from "./components/SearchBar";
+import SearchBar from './components/SearchBar'
+import Navbar from './components/Navbar'
 
 function App() {
   return (

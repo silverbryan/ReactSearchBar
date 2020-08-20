@@ -6,19 +6,19 @@ import {
   SEARCH_PARAM
 } from '../constants/ApiParams'
 
-import AppData from '../constants/AppData';
+// import AppData from '../constants/AppData';
 
 const SearchBar = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [visible, setVisible] = useState(false);
   const [results, setResults] = useState([]);
 
-  const handleOnChangeEvent = (event) => {
-    setSearchTerm(event.target.value);
+  const handleOnChangeEvent = event => {
+    setSearchTerm(event.target.value.toLowerCase());
   }
 
-  const getResults = (searchTerm) => {
+  useEffect(() => {
+    console.log("llamada  a useEffect" + searchTerm);
     fetch(API_URL + SITE + SEARCH_PARAM + searchTerm)
       .then(res => res.json())
       .then(
@@ -26,51 +26,52 @@ const SearchBar = () => {
           const Array = [];
           result.results.map((hit) => Array.push(
             {
-              image: hit.thumbnail,
-              title: hit.title
+              link: hit.permalink,
+              title: hit.title,
+              price: hit.price
             }))
           setResults(Array);
+          console.log(results);
         },
         (error) => {
-          setVisible(false);
+          console.log(error);
         }
       )
-  }
-
-  const getProductById = () => {
-
-  }
-
-  useEffect(() => {
-    if (searchTerm !== "") {
-      setVisible(true);
-      getResults(searchTerm);
-    } else {
-      setVisible(false);
-    }
-  })
+  }, [searchTerm]);
 
   return (
     <div className="container py-5 text-white">
+      <h1>{searchTerm}</h1>
       <div className="box">
-        <i class="fas fa-search"></i>
-        <input onKeyPress={handleOnChangeEvent} type="text" name="input" id="" placeholder="Custom searchbar" />
-        <i class="far fa-times-circle"></i>
+        <i className="fas fa-search"></i>
+        <input
+          onChange={handleOnChangeEvent}
+          type="text"
+          value={searchTerm}
+          placeholder="Custom searchbar"
+        />
+        <i className="far fa-times-circle"></i>
       </div>
-      {visible
-        ?
-        <div className="results">
-          {results.map(result => (
-            <ul>
-              <li>
-                <span>{result.title}</span>
-              </li>
-            </ul>
-          ))}
-        </div>
-        :
-        <p>No result found</p>
-      }
+      <div className="results">
+        {results.map(result => (
+          <ul>
+            <li>
+              <div className="col-lg-12 pt-4">
+                <a href={result.link} target="_black">
+                  <div className="content-search">
+                    <div className="content">
+                      <h6>{result.title}</h6>
+                    </div>
+                    <div className="content">
+                      <h6>Precio: ${result.price}ARS</h6>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        ))}
+      </div>
     </div>
   );
 }
