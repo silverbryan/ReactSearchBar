@@ -1,4 +1,4 @@
-> [Ver Online] (http://soyhenry.com)
+> [Ver Online](http://soyhenry.com)
 
 ## Description
 
@@ -7,7 +7,7 @@ El proyecto basicamente provee una barra de busqueda de productos de mercadolibr
 ## Preview 
 
 <p align='center'>
-    <img src='' </img>
+    <img src='https://raw.githubusercontent.com/silverbryan/ReactSearchBar/master/public/images/captura.png' </img>
 </p>
 
 ## Available Scripts
