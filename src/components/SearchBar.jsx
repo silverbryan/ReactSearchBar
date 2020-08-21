@@ -43,7 +43,7 @@ const SearchBar = () => {
     <div className="container py-5 text-white">
       <h1>{searchTerm}</h1>
       <div className="box">
-        <i className="fas fa-search"></i>
+        <i className="fas fa-search mx-2"></i>
         <input
           onChange={handleOnChangeEvent}
           type="text"
@@ -63,7 +63,7 @@ const SearchBar = () => {
                       <h6>{result.title}</h6>
                     </div>
                     <div className="content">
-                      <h6>Precio: ${result.price}ARS</h6>
+                      <h6>Precio: ${result.price} ARS</h6>
                     </div>
                   </div>
                 </a>

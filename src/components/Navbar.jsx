@@ -13,7 +13,7 @@ const Navbar = () => {
           </div>
         </li>
         <li className="nav-item">
-          <a href="http://" className="nav-link">About Proyect</a>
+          <a href="https://github.com/silverbryan/ReactSearchBar" className="nav-link" target="_black">About Proyect</a>
         </li>
       </ul>
     </nav>
